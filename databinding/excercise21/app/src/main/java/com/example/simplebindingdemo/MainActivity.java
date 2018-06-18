@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+// import com.example.simplebindingdemo.databinding.ActivityMainBinding;
 import com.example.simplebindingdemo.databinding.ActivityMainBinding;
 //impoty android.databinding.DataBindingUtil;
 
