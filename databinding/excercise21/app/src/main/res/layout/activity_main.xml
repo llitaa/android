@@ -44,10 +44,15 @@
 
         </LinearLayout>
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <include
-        android:id="@+id/itemsSection1"
-        layout="@layout/item_section"
-        bind:dataSource="@{dataSource}" />
+            android:id="@+id/itemsSection1"
+            layout="@layout/item_section"
+            bind:dataSource="@{dataSource}" />
 
         <include layout="@layout/data_view" />
 
