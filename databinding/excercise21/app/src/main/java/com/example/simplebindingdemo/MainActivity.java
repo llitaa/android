@@ -19,11 +19,14 @@ import android.widget.TextView;
 import com.example.simplebindingdemo.databinding.ActivityMainBinding;
 import com.example.simplebindingdemo.databinding.ExpressionsBinding;
 import com.example.simplebindingdemo.databinding.ItemViewBinding;
+
 // import com.example.simplebindingdemo.databinding.DataBindingUtils;
 
 //impoty android.databinding.DataBindingUtil;
 
 public class MainActivity extends FragmentActivity {
+
+    public String imageUrl = "https://www.w3schools.com/images/w3schools_green.jpg";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,13 @@ public class MainActivity extends FragmentActivity {
         // Set binding
         binding.setDataSource(dataSource);
         binding.setIncludeSource(includeSource);
+
+        binding.setImageUrl(imageUrl);
+        // String imageUrl = "https://www.w3schools.com/images/w3schools_green.jpg";
+        // binding.setImageUrl(imageUrl);
+        // binding.customImage.setImageUrl(imageUrl);
+
+
 
         binding.list.setLayoutManager(new LinearLayoutManager(this));
         binding.list.setAdapter(new DataSourceAdaper(getLayoutInflater()));
@@ -55,7 +65,7 @@ public class MainActivity extends FragmentActivity {
         binding.menu.addView(vanillaSpecialBinding.getRoot());
     }
 
-    private class DataSourceAdaper extends RecyclerView.Adapter<ViewHolder>{
+    public class DataSourceAdaper extends RecyclerView.Adapter<ViewHolder>{
         private LayoutInflater layoutInflater;
 
         public DataSourceAdaper(LayoutInflater layoutInflater) {

@@ -1,7 +1,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <!--xmlns:bind="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res/com.mycompany.myapp http://schemas.android.com/example/simplebindingdemo"-->
+
 
     <data>
 
@@ -12,6 +15,10 @@
         <variable
             name="includeSource"
             type="com.example.simplebindingdemo.DataSource" />
+
+        <variable
+            name="imageUrl"
+            type="String" />
 
     </data>
 
@@ -61,6 +68,12 @@
             layout="@layout/item_section" />
 
         <include layout="@layout/data_view" />
+
+        <ImageView
+            app:imageUrl="@{imageUrl}"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 </layout>
