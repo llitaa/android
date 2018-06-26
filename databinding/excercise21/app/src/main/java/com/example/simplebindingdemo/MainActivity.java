@@ -38,9 +38,21 @@ public class MainActivity extends FragmentActivity {
         binding.setDataSource(dataSource);
         binding.setIncludeSource(includeSource);
 
-        // ExpressionsBinding raspberryBinding = ExpressionsBinding.inflate(getLayoutInflater(), binding.menu, false);
         binding.list.setLayoutManager(new LinearLayoutManager(this));
         binding.list.setAdapter(new DataSourceAdaper(getLayoutInflater()));
+
+        initShopItems(binding);
+    }
+
+    private void initShopItems(ActivityMainBinding binding)
+    {
+        ExpressionsBinding raspberryBinding = ExpressionsBinding.inflate(getLayoutInflater(), binding.menu, false);
+        raspberryBinding.setItem(new MenuItem(true, "raspberry", "$0.99", 2));
+        binding.menu.addView(raspberryBinding.getRoot());
+
+        ExpressionsBinding vanillaSpecialBinding = ExpressionsBinding.inflate(getLayoutInflater(), binding.menu, false);
+        vanillaSpecialBinding.setItem(new MenuItem(false, "vanilla", "$2.99", 2));
+        binding.menu.addView(vanillaSpecialBinding.getRoot());
     }
 
     private class DataSourceAdaper extends RecyclerView.Adapter<ViewHolder>{
