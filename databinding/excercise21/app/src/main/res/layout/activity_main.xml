@@ -1,4 +1,5 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -8,9 +9,14 @@
             name="dataSource"
             type="com.example.simplebindingdemo.DataSource" />
 
+        <variable
+            name="includeSource"
+            type="com.example.simplebindingdemo.DataSource" />
+
     </data>
 
     <LinearLayout
+        android:id="@+id/parentLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -23,13 +29,33 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Title" />
+            android:text="@{dataSource.message}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{includeSource.message}" />
+
+        <LinearLayout
+            android:id="@+id/menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
 
         <include
-            layout="@layout/item_section"
-            bind:dataSource="@{dataSource}" />
-        <!--android:dataSource="@{1}"-->
-        <!--bind:dataSource="@{dataSource}"-->
+        android:id="@+id/itemsSection1"
+        layout="@layout/item_section"
+        bind:dataSource="@{dataSource}" />
+
+        <include layout="@layout/data_view" />
+
+        <include
+            android:id="@+id/itemsSection2"
+            layout="@layout/item_section" />
+
+        <include layout="@layout/data_view" />
 
     </LinearLayout>
 </layout>

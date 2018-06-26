@@ -14,7 +14,6 @@ public class DataFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-//        FragmentDataBinding binding = FragmentDataBinding.inflate(inflater, container, false);
 
         inflater.inflate(R.layout.fragment_data, container, false);
         FragmentDataBinding binding = FragmentDataBinding.inflate(inflater);

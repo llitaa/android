@@ -5,6 +5,7 @@ public class DataSource {
     private String name;
     private String startName;
     private String endName;
+    private String dataViewName;
 
     public static DataSource get(String name) {
         return new DataSource(name);
@@ -15,6 +16,7 @@ public class DataSource {
         this.name = name;
         this.startName = "Start from Data Source";
         this.endName = "End from Data Source";
+        this.dataViewName = "Data View Name";
     }
 
     public String getMessage() {
@@ -27,6 +29,10 @@ public class DataSource {
 
     public String getEndName() {
         return endName;
+    }
+
+    public String getDataViewName() {
+        return dataViewName;
     }
 
 }
