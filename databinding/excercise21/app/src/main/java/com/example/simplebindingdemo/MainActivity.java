@@ -25,11 +25,16 @@ import com.example.simplebindingdemo.databinding.ActivityMainBinding;
 import com.example.simplebindingdemo.databinding.ExpressionsBinding;
 import com.example.simplebindingdemo.databinding.ItemViewBinding;
 
+import java.util.Arrays;
+import java.util.List;
+
 // import com.example.simplebindingdemo.databinding.DataBindingUtils;
 
 //impoty android.databinding.DataBindingUtil;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
+
+    private ActivityMainBinding binding;
 
     public String imageUrl = "https://www.w3schools.com/images/w3schools_green.jpg";
 
@@ -55,6 +60,24 @@ public class MainActivity extends FragmentActivity {
         initShopItems(binding);
 
         binding.setListeners(new Listeners(binding));
+
+        this.binding = binding;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        binding.setEmployeesList(getEmployees());
+    }
+
+    private List<Person> getEmployees() {
+        List<Person> res = Arrays.asList(
+                new Person("John Doe", Person.Classification.EMPLOYEE),
+                new Person("Bob Dilan", Person.Classification.EMPLOYEE),
+                new Person("Romy Allan", Person.Classification.VENDOR),
+                new Person("The Carver", Person.Classification.CONTRACTOR));
+
+        return res;
     }
 
     private void initShopItems(ActivityMainBinding binding) {

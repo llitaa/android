@@ -4,6 +4,9 @@
 
     <data>
 
+        <import type="java.util.List" />
+        <import type="com.example.simplebindingdemo.Person" />
+
         <variable
             name="dataSource"
             type="com.example.simplebindingdemo.DataSource" />
@@ -23,6 +26,10 @@
         <variable
             name="listeners"
             type="com.example.simplebindingdemo.MainActivity.Listeners" />
+
+        <variable
+            name="employeesList"
+            type="List&lt;Person>" />
 
     </data>
 
@@ -59,6 +66,12 @@
             android:id="@+id/list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/employees"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:personList="@{employeesList}" />
 
         <include
             android:id="@+id/itemsSection1"
