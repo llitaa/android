@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 // import com.example.simplebindingdemo.databinding.ActivityMainBinding;
 import com.example.simplebindingdemo.databinding.ActivityMainBinding;
@@ -48,20 +49,15 @@ public class MainActivity extends FragmentActivity {
         binding.setImageUrl(imageUrl);
         binding.setNumber(568);
 
-        // String imageUrl = "https://www.w3schools.com/images/w3schools_green.jpg";
-        // binding.setImageUrl(imageUrl);
-        // binding.customImage.setImageUrl(imageUrl);
-
-
-
         binding.list.setLayoutManager(new LinearLayoutManager(this));
         binding.list.setAdapter(new DataSourceAdaper(getLayoutInflater()));
 
         initShopItems(binding);
+
+        binding.setListeners(new Listeners(binding));
     }
 
-    private void initShopItems(ActivityMainBinding binding)
-    {
+    private void initShopItems(ActivityMainBinding binding) {
         ExpressionsBinding raspberryBinding = ExpressionsBinding.inflate(getLayoutInflater(), binding.menu, false);
         raspberryBinding.setItem(new MenuItem(true, "raspberry", "$0.99", 2));
         binding.menu.addView(raspberryBinding.getRoot());
@@ -71,10 +67,7 @@ public class MainActivity extends FragmentActivity {
         binding.menu.addView(vanillaSpecialBinding.getRoot());
     }
 
-
-
-
-    public class DataSourceAdaper extends RecyclerView.Adapter<ViewHolder>{
+    public class DataSourceAdaper extends RecyclerView.Adapter<ViewHolder> {
         private LayoutInflater layoutInflater;
 
         public DataSourceAdaper(LayoutInflater layoutInflater) {
@@ -97,7 +90,7 @@ public class MainActivity extends FragmentActivity {
 
         @Override
         public int getItemCount() {
-            return 10;
+            return 3;
         }
     }
 
@@ -106,4 +99,21 @@ public class MainActivity extends FragmentActivity {
             super(itemView);
         }
     }
+
+    public static class Listeners implements View.OnClickListener {
+
+        private ActivityMainBinding binding;
+
+        public Listeners(ActivityMainBinding bnd) {
+            this.binding = bnd;
+        }
+
+        @Override
+        public void onClick(View v) {
+            int number = binding.getNumber();
+            binding.setNumber(++number);
+            // Toast.makeText(v.getContext(), "Button Pressed", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

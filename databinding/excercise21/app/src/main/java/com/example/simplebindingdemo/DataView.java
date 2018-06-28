@@ -18,7 +18,7 @@ public class DataView extends LinearLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-//
+    //
     }
 
     @Override
