@@ -1,7 +1,10 @@
 package com.example.simplebindingdemo;
 
+import android.content.Context;
+import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.Fragment;
@@ -12,6 +15,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -42,6 +46,8 @@ public class MainActivity extends FragmentActivity {
         binding.setIncludeSource(includeSource);
 
         binding.setImageUrl(imageUrl);
+        binding.setNumber(568);
+
         // String imageUrl = "https://www.w3schools.com/images/w3schools_green.jpg";
         // binding.setImageUrl(imageUrl);
         // binding.customImage.setImageUrl(imageUrl);
@@ -64,6 +70,9 @@ public class MainActivity extends FragmentActivity {
         vanillaSpecialBinding.setItem(new MenuItem(false, "vanilla", "$2.99", 2));
         binding.menu.addView(vanillaSpecialBinding.getRoot());
     }
+
+
+
 
     public class DataSourceAdaper extends RecyclerView.Adapter<ViewHolder>{
         private LayoutInflater layoutInflater;

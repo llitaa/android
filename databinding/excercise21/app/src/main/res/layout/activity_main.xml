@@ -20,6 +20,10 @@
             name="imageUrl"
             type="String" />
 
+        <variable
+            name="number"
+            type="int" />
+
     </data>
 
     <LinearLayout
@@ -71,9 +75,14 @@
 
         <ImageView
             app:imageUrl="@{imageUrl}"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            app:numberText="@{number}"/>
 
     </LinearLayout>
 </layout>
