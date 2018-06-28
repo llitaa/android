@@ -1,13 +1,7 @@
 package com.example.simplebindingdemo;
 
-import android.content.Context;
-import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,16 +9,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 // import com.example.simplebindingdemo.databinding.ActivityMainBinding;
 import com.example.simplebindingdemo.databinding.ActivityMainBinding;
 import com.example.simplebindingdemo.databinding.ExpressionsBinding;
 import com.example.simplebindingdemo.databinding.ItemViewBinding;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -35,7 +26,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-
     public String imageUrl = "https://www.w3schools.com/images/w3schools_green.jpg";
 
     @Override
@@ -52,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         binding.setIncludeSource(includeSource);
 
         binding.setImageUrl(imageUrl);
-        binding.setNumber(568);
+        binding.setNumber(100);
 
         binding.list.setLayoutManager(new LinearLayoutManager(this));
         binding.list.setAdapter(new DataSourceAdaper(getLayoutInflater()));
@@ -67,10 +57,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        binding.setEmployeesList(getEmployees());
+        binding.setEmployeesList(getDefaultEmployees());
     }
 
-    private List<Person> getEmployees() {
+    private List<Person> getDefaultEmployees() {
         List<Person> res = Arrays.asList(
                 new Person("John Doe", Person.Classification.EMPLOYEE),
                 new Person("Bob Dilan", Person.Classification.EMPLOYEE),
@@ -134,7 +124,21 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             int number = binding.getNumber();
-            binding.setNumber(++number);
+            List<Person> employees = new ArrayList<>(binding.getEmployeesList());
+            if (v.getId() == R.id.addEmployeesButton) {
+                binding.setNumber(++number);
+                String ind = Integer.toString(number);
+                String name = "Name " + ind;
+                employees.add(new Person(name, Person.Classification.VENDOR));
+                binding.setEmployeesList(employees);
+            } else if (v.getId() == R.id.removeEmployeesButton) {
+                if (number > 0) {
+                    binding.setNumber(--number);
+                }
+                employees.remove(employees.size() - 1);
+                binding.setEmployeesList(employees);
+            }
+
             // Toast.makeText(v.getContext(), "Button Pressed", Toast.LENGTH_SHORT).show();
         }
     }

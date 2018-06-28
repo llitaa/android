@@ -57,18 +57,21 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
     @Override
     public void onBindViewHolder(PersonAdapter.ViewHolder viewHolder, int position) {
         Person person = list.get(position);
-        int itemViewType = getItemViewType(position);
-        switch (itemViewType) {
-            case 0:
-                ((EmployeeItemBinding) viewHolder.getBinding()).setPerson(person);
-                break;
-            case 1:
-                ((ContractorItemBinding) viewHolder.getBinding()).setPerson(person);
-                break;
-            case 2:
-                ((VendorItemBinding) viewHolder.getBinding()).setPerson(person);
-                break;
-        }
+        ViewDataBinding binding = viewHolder.getBinding();
+        binding.setVariable(BR.person, person);
+
+//        int itemViewType = getItemViewType(position);
+//        switch (itemViewType) {
+//            case 0:
+//                ((EmployeeItemBinding) viewHolder.getBinding()).setPerson(person);
+//                break;
+//            case 1:
+//                ((ContractorItemBinding) viewHolder.getBinding()).setPerson(person);
+//                break;
+//            case 2:
+//                ((VendorItemBinding) viewHolder.getBinding()).setPerson(person);
+//                break;
+//        }
     }
 
     @Override
