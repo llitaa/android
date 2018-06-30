@@ -45,10 +45,10 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context=".MainActivity">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{dataSource.message}" />
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@{dataSource.message}" />-->
 
         <TextView
             android:layout_width="wrap_content"
@@ -74,18 +74,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <include
-            android:id="@+id/itemsSection1"
-            layout="@layout/item_section"
-            bind:dataSource="@{dataSource}" />
+        <!--<include-->
+            <!--android:id="@+id/itemsSection1"-->
+            <!--layout="@layout/item_section"-->
+            <!--bind:dataSource="@{dataSource}" />-->
 
         <include layout="@layout/data_view" />
 
-        <include
-            android:id="@+id/itemsSection2"
-            layout="@layout/item_section" />
+        <!--<include-->
+            <!--android:id="@+id/itemsSection2"-->
+            <!--layout="@layout/item_section" />-->
 
-        <include layout="@layout/data_view" />
+        <!--<include layout="@layout/data_view" />-->
+
+        <include layout="@layout/switch_view"/>
+        <include layout="@layout/switch_view"/>
+
 
         <ImageView
             app:imageUrl="@{imageUrl}"

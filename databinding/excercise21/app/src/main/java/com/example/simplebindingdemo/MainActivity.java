@@ -33,11 +33,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Inflate layout
-        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        // Get data
-        DataSource dataSource = DataSource.get("Lol Kek");
-        DataSource includeSource = DataSource.get("Included Source");
-        // Set binding
+    ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+    // Get data
+    DataSource dataSource = DataSource.get("Data from parent");
+    DataSource includeSource = DataSource.get("Included Source");
+    // Set binding
         binding.setDataSource(dataSource);
         binding.setIncludeSource(includeSource);
 
@@ -47,12 +47,12 @@ public class MainActivity extends AppCompatActivity {
         binding.list.setLayoutManager(new LinearLayoutManager(this));
         binding.list.setAdapter(new DataSourceAdaper(getLayoutInflater()));
 
-        initShopItems(binding);
+    initShopItems(binding);
 
         binding.setListeners(new Listeners(binding));
 
         this.binding = binding;
-    }
+}
 
     @Override
     protected void onResume() {

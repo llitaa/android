@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="switch_yellow_off">#A4C639</color>
+    <color name="switch_yellow_on">#F9A909</color>
+    <color name="switch_backgroud_material_light">#FEFEFE</color>
+    <color name="switch_backgroud_material_dark">#7A7A7A</color>
+
+</resources>
