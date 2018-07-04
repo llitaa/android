@@ -4,5 +4,7 @@
     <color name="switch_yellow_on">#F9A909</color>
     <color name="switch_backgroud_material_light">#FEFEFE</color>
     <color name="switch_backgroud_material_dark">#7A7A7A</color>
+    <color name="blue">#00F</color>
+    <color name="red">#F00</color>
 
 </resources>

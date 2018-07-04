@@ -100,22 +100,24 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:padding="16dp">
 
             <TextView
                 android:id="@+id/numberText"
                 app:numberText="@{number}"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="50dp"
+                android:textStyle="bold" />
 
-            <!--style="@style/Base.Widget.AppCompat.Button.Colored"-->
             <Button
                 android:id="@+id/addEmployeesButton"
                 style="@style/ChangeEntriesButton"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/numberText"
                 android:background="@drawable/button_background_selector"
+                android:textColor="@color/color_button_selector"
                 android:onClick="@{listeners}"
                 android:text="+"
                 android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored" />
@@ -123,7 +125,6 @@
             <Button
                 android:id="@+id/removeEmployeesButton"
                 style="@style/ChangeEntriesButton"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/addEmployeesButton"
                 android:background="@drawable/button_background_selector"
