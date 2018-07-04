@@ -46,9 +46,9 @@
         tools:context=".MainActivity">
 
         <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@{dataSource.message}" />-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@{dataSource.message}" />-->
 
         <TextView
             android:layout_width="wrap_content"
@@ -75,20 +75,21 @@
             android:layout_height="wrap_content" />
 
         <!--<include-->
-            <!--android:id="@+id/itemsSection1"-->
-            <!--layout="@layout/item_section"-->
-            <!--bind:dataSource="@{dataSource}" />-->
+        <!--android:id="@+id/itemsSection1"-->
+        <!--layout="@layout/item_section"-->
+        <!--bind:dataSource="@{dataSource}" />-->
 
         <include layout="@layout/data_view" />
 
         <!--<include-->
-            <!--android:id="@+id/itemsSection2"-->
-            <!--layout="@layout/item_section" />-->
+        <!--android:id="@+id/itemsSection2"-->
+        <!--layout="@layout/item_section" />-->
 
         <!--<include layout="@layout/data_view" />-->
 
-        <include layout="@layout/switch_view"/>
-        <include layout="@layout/switch_view"/>
+        <include layout="@layout/switch_view" />
+
+        <include layout="@layout/switch_view" />
 
 
         <ImageView
@@ -107,23 +108,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
+            <!--style="@style/Base.Widget.AppCompat.Button.Colored"-->
             <Button
                 android:id="@+id/addEmployeesButton"
-                style="@style/Base.Widget.AppCompat.Button.Colored"
+                style="@style/ChangeEntriesButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/numberText"
+                android:background="@drawable/button_background_selector"
                 android:onClick="@{listeners}"
-                android:text="+" />
+                android:text="+"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored" />
 
             <Button
                 android:id="@+id/removeEmployeesButton"
-                style="@style/Base.Widget.AppCompat.Button.Colored"
+                style="@style/ChangeEntriesButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/addEmployeesButton"
+                android:background="@drawable/button_background_selector"
                 android:onClick="@{listeners}"
-                android:text="-" />
+                android:text="-"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored" />
         </RelativeLayout>
 
     </LinearLayout>
