@@ -31,10 +31,11 @@
 
             <TextView
                 android:id="@+id/textViewWithGradient"
-                style="@style/BaseTextStyle"
+                style="@style/SmallTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Gradient" />
+                android:text="Gradient"
+                android:textSize="10dp"/>
 
             <TextView
                 style="@style/BaseTextStyle"

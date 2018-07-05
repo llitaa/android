@@ -35,7 +35,5 @@ public class DataView extends LinearLayout {
         TextView tw = (TextView) binding.textViewWithGradient;
         LinearGradient ls = new LinearGradient(0,0, 0, tw.getTextSize(), Color.GREEN, Color.RED, Shader.TileMode.REPEAT);
         tw.getPaint().setShader(ls);
-        tw.setTextSize(40);
-
     }
 }

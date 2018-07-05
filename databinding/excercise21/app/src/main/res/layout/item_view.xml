@@ -15,9 +15,10 @@
         tools:context="com.example.simplebindingdemo.MainActivity">
 
         <TextView
+            style="@style/SmallTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{dataSource.message}" />
-
+            android:text="@{dataSource.message}"
+            android:textSize="10dp" />
     </FrameLayout>
 </layout>
