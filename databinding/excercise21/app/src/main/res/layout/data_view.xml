@@ -30,9 +30,35 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/textViewWithGradient"
+                style="@style/BaseTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{dataSource.message}" />
+                android:text="Gradient" />
+
+            <TextView
+                style="@style/BaseTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Base Text Style" />
+
+            <Button
+                style="@style/BaseButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Medium" />
+
+            <TextView
+                style="@style/SmallTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Small" />
+
+            <TextView
+                style="@style/BigTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Big" />
 
         </LinearLayout>
 

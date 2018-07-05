@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="ChangeEntriesButton">
         <item name="android:textSize">30dp</item>
         <item name="android:textColor">#0FF</item>
         <item name="android:layout_width">100dp</item>
     </style>
+
+    <style name="BaseButtonStyle">
+        <item name="android:textAppearance">@style/BaseTextStyle</item>
+    </style>
+
+    <!--<style name="BaseButtonStyle.BigTextStyle">-->
+    <!--<item name="BaseButtonStyle.Bi">50dp</item>-->
+    <!--</style>-->
 
 </resources>
