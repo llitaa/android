@@ -1,6 +1,9 @@
 package com.example.simplebindingdemo;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-// import com.example.simplebindingdemo.databinding.ActivityMainBinding;
 import com.example.simplebindingdemo.databinding.ActivityMainBinding;
 import com.example.simplebindingdemo.databinding.ExpressionsBinding;
 import com.example.simplebindingdemo.databinding.ItemViewBinding;
@@ -18,10 +20,6 @@ import com.example.simplebindingdemo.databinding.ItemViewBinding;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-// import com.example.simplebindingdemo.databinding.DataBindingUtils;
-
-//impoty android.databinding.DataBindingUtil;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Inflate layout
-    ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-    // Get data
-    DataSource dataSource = DataSource.get("Data from parent");
-    DataSource includeSource = DataSource.get("Included Source");
-    // Set binding
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        // Get data
+        DataSource dataSource = DataSource.get("Data from parent");
+        DataSource includeSource = DataSource.get("Included Source");
+        // Set binding
         binding.setDataSource(dataSource);
         binding.setIncludeSource(includeSource);
 
@@ -47,17 +45,29 @@ public class MainActivity extends AppCompatActivity {
         binding.list.setLayoutManager(new LinearLayoutManager(this));
         binding.list.setAdapter(new DataSourceAdaper(getLayoutInflater()));
 
-    initShopItems(binding);
+        initShopItems(binding);
 
         binding.setListeners(new Listeners(binding));
 
         this.binding = binding;
-}
+    }
 
     @Override
     protected void onResume() {
         super.onResume();
         binding.setEmployeesList(getDefaultEmployees());
+    }
+
+    public void launchSecondActivity() {
+        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this);
+            startActivity(intent, options.toBundle());
+        }
+        else {
+            startActivity(intent);
+        }
+
     }
 
     private List<Person> getDefaultEmployees() {

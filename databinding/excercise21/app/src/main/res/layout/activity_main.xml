@@ -117,10 +117,10 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/numberText"
                 android:background="@drawable/button_background_selector"
-                android:textColor="@color/color_button_selector"
                 android:onClick="@{listeners}"
                 android:text="+"
-                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                android:textColor="@color/color_button_selector" />
 
             <Button
                 android:id="@+id/removeEmployeesButton"

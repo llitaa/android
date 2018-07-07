@@ -11,6 +11,8 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/appThemeLight</item>
         <item name="colorPrimaryDark">@color/appThemeDark</item>
+        <!--Enable animation when starting activity-->
+        <item name="android:windowActivityTransitions">true</item>
     </style>
 
 </resources>
