@@ -49,7 +49,8 @@ public class DataView extends LinearLayout {
                 // MainActivity host = (MainActivity) v.getContext();
                 MainActivity act = getActivity(v);
                 if(act != null) {
-                    act.launchSecondActivity();
+//                    act.launchSecondActivity();
+                    act.triggerSecondActivityPI();
                 }
             }
         });
